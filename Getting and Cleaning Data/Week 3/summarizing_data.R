@@ -72,11 +72,9 @@ DF <- as.data.frame(UCBAdmissions)
 summary(DF)
 
 xt <- xtabs(Freq ~ Gender + Admit, data = DF)
+# break down freq by gender and admit.
 # results:
 #         Admit
 # Gender   Admitted Rejected
 #   Male       1198     1493
 #   Female      557     1278
-
-# flat tables
-# see the pdf file. last 2 pages.

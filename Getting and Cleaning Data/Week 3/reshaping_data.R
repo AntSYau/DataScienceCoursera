@@ -22,5 +22,11 @@ cylData <- dcast(carMelt, cyl ~ variable, mean); cylData
 # averaging values
 head(InsectSprays)
 tapply(InsectSprays$count,InsectSprays$spray,sum)
-spIns <- split(InsectSprays$count,InsectSprays$spray)
+# another way - split, apply, combine
+spIns <- split(InsectSprays$count,InsectSprays$spray); spIns
 sprCount <- lapply(spIns, sum)
+unlist(sprCount)
+sapply(spIns,sum)
+# another way - plyr pac
+library(plyr)
+ddply(InsectSprays,.(spray),summarize,sum=sum(count))

@@ -21,7 +21,9 @@ restData$zipGroups = cut(restData$zipCode, quantile(restData$zipCode))
 table(restData$zipGroup)
 
 # easier cutting
-# see pdf page 9
+library(Hmisc)
+restData$zipGroups = cut2(restData$zipCode,g=4)
+table(restData$zipGroups)
 
 # creating factor variables
 restData$zcf <- factor(restData$zipCode)
@@ -35,6 +37,8 @@ relevel(yesnofac, ref="yes")
 as.numeric(yesnofac)
 
 # mutate function
-# see pdf file
+library(Hmisc); library(plyr)
+restData2 = mutate(restData,zipGroups=cut2(zipCode,g=4))
+table(restData2$zipGroups)
 # commom transforms
 # see pdf file
